@@ -20,9 +20,8 @@ public class UserService {
                User savedUser = userRepo.save(user);
                if(savedUser != null){
                     return new MessageReturn("Created Account successfully", true);
-               }else{
-                    return new MessageReturn("failed to create user account. Server error", false);
                }
+               return new MessageReturn("Failed to save user", false);
           }catch(Exception e){
                e.printStackTrace();
                return new MessageReturn("Server error.", false);
